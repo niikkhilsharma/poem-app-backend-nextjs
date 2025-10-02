@@ -6,24 +6,48 @@ import { z } from 'zod'
 const client = new OpenAI({ apiKey: process.env.OPEN_API_KEY })
 
 const poemsSchema = z.object({
-	poems: z.array(
-		z.object({
-			title: z.string().min(1).max(100),
-			author: z.string().min(1).max(100),
-			text: z.string().min(40).max(500),
-		})
-	),
+	poems: z
+		.array(
+			z.object({
+				title: z.string().min(1).max(100),
+				author: z.string().min(1).max(100),
+				text: z.string().min(40).max(500),
+			})
+		)
+		.min(2)
+		.max(2),
 })
 
 export async function GET() {
-	const prompt = `Generate 2 poems in the style of classic Victorian and Edwardian poetry. Focus on themes of courage, perseverance, nature, adventure, and moral reflection. Each poem should feature:
-- Strong rhythmic patterns and clear meter
-- Accessible language with memorable phrasing
-- Narrative or philosophical elements
-- Universal themes that resonate across time
+	const prompt = `Provide 2 complete poems from real authors. Alternate between English and Hindi poems, selecting from different languages/poets each time.
 
-Include the complete title and full text for each poem. Aim for works that balance traditional structure with timeless wisdom, similar to the great narrative and didactic poets of the late 19th and early 20th centuries.
-`
+For English poems, choose from Victorian and Edwardian poets (1837-1920) featuring themes of courage, perseverance, nature, adventure, moral reflection, or romance:
+- Rudyard Kipling
+- Alfred, Lord Tennyson
+- Robert Browning
+- Elizabeth Barrett Browning
+- Christina Rossetti
+- Thomas Hardy
+- William Butler Yeats
+- A.E. Housman
+- Robert Louis Stevenson
+
+For Hindi poems, choose from renowned poets:
+- Harivansh Rai Bachchan
+- Sumitranandan Pant
+- Mahadevi Varma
+- Ramdhari Singh Dinkar
+- Jaishankar Prasad
+- Suryakant Tripathi 'Nirala'
+
+For each poem, include:
+- The complete title (in original language)
+- The full poem text
+- The author's name
+- The year of publication (if known)
+- English translation for Hindi poems
+
+Select poems with strong rhythmic patterns, memorable phrasing, and universal themes. Provide only authentic, published works - do not generate or modify original poems.`
 
 	const response = await client.responses.parse({
 		model: 'gpt-5-nano',
