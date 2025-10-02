@@ -50,7 +50,7 @@ For each quote, include:
 Select quotes with profound meaning, timeless wisdom, and universal appeal. Provide only authentic, verified quotes - do not generate or modify original quotes.`
 
 	const response = await client.responses.parse({
-		model: 'gpt-5-nano',
+		model: 'gpt-4o-mini',
 		input: [
 			{ role: 'system', content: 'You are a helpful assistant providing authentic quotes from historical figures.' },
 			{
