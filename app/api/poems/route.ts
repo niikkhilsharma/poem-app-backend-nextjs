@@ -16,8 +16,14 @@ const poemsSchema = z.object({
 })
 
 export async function GET() {
-	const prompt = `Generate 2 poems. Mostly from poets like Rudyard Kipling and similar poets. Some random poems can be included too.
-Each poem must have the title, and the full text of the poem.`
+	const prompt = `Generate 2 poems in the style of classic Victorian and Edwardian poetry. Focus on themes of courage, perseverance, nature, adventure, and moral reflection. Each poem should feature:
+- Strong rhythmic patterns and clear meter
+- Accessible language with memorable phrasing
+- Narrative or philosophical elements
+- Universal themes that resonate across time
+
+Include the complete title and full text for each poem. Aim for works that balance traditional structure with timeless wisdom, similar to the great narrative and didactic poets of the late 19th and early 20th centuries.
+`
 
 	const response = await client.responses.parse({
 		model: 'gpt-5-nano',
