@@ -20,7 +20,7 @@ export async function GET() {
 Each poem must have the title, and the full text of the poem.`
 
 	const response = await client.responses.parse({
-		model: 'gpt-4.1-nano',
+		model: 'gpt-5-nano',
 		input: [
 			{ role: 'system', content: 'You are a helpful poetic assistant.' },
 			{
