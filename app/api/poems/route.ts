@@ -10,7 +10,7 @@ const poemsSchema = z.object({
 		z.object({
 			title: z.string().min(1).max(100),
 			author: z.string().min(1).max(100),
-			text: z.string().min(50).max(1000),
+			text: z.string().min(40).max(500),
 		})
 	),
 })
