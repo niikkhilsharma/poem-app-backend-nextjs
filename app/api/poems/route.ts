@@ -14,8 +14,8 @@ const quotesSchema = z.object({
 				title: z.string().min(1).max(100),
 			})
 		)
-		.min(2)
-		.max(2),
+		.min(5)
+		.max(5),
 })
 
 export async function GET() {
