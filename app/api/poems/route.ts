@@ -11,7 +11,7 @@ const quotesSchema = z.object({
 			z.object({
 				text: z.string().min(10).max(300),
 				author: z.string().min(1).max(100),
-				context: z.string().min(1).max(100),
+				title: z.string().min(1).max(100),
 			})
 		)
 		.min(2)
