@@ -16,11 +16,11 @@ const poemsSchema = z.object({
 })
 
 export async function GET() {
-	const prompt = `Generate 3 poems. Mostly from poets like Rudyard Kipling and similar poets. Some random poems can be included too.
+	const prompt = `Generate 2 poems. Mostly from poets like Rudyard Kipling and similar poets. Some random poems can be included too.
 Each poem must have the title, and the full text of the poem.`
 
 	const response = await client.responses.parse({
-		model: 'gpt-5-nano',
+		model: 'gpt-4.1-nano',
 		input: [
 			{ role: 'system', content: 'You are a helpful poetic assistant.' },
 			{
