@@ -44,8 +44,6 @@ For each poem, include:
 - The complete title (in original language)
 - The full poem text
 - The author's name
-- The year of publication (if known)
-- English translation for Hindi poems
 
 Select poems with strong rhythmic patterns, memorable phrasing, and universal themes. Provide only authentic, published works - do not generate or modify original poems.`
 
